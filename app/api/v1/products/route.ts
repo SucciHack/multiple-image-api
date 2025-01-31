@@ -12,7 +12,8 @@ export async function POST(request:NextRequest) {
         return NextResponse.json({
             data:newProduct,
             message:"fetched",
-            error:null
+            error:null,
+            status:201
         },{
             status:201
         })
@@ -21,6 +22,8 @@ export async function POST(request:NextRequest) {
         return NextResponse.json({
             data:null,
             error:"something went wrong"
+        },{
+            status:500
         })
     }
 }
@@ -32,8 +35,9 @@ export async function GET() {
         const data = await db.product.findMany()
     return NextResponse.json({
         data,
-        message:"fetched",
-        error:null
+        message:"fetched successfully",
+        error:null,
+        status:200
     },{
         status:200
     })
@@ -41,7 +45,7 @@ export async function GET() {
         console.log(error)
         return NextResponse.json({
             data:null,
-            error:"something went wrong"
+            error:"failed to fetch"
         },{
             status:500
         })

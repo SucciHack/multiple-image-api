@@ -77,7 +77,8 @@ export async function DELETE(request:NextRequest, {params}:{params:Promise<{id:s
         }) 
         return NextResponse.json({
             message:"deleted",
-            error:null
+            error:null,
+            status:200
         },{
             status:200
         })
@@ -86,6 +87,8 @@ export async function DELETE(request:NextRequest, {params}:{params:Promise<{id:s
         return NextResponse.json({
             data:null,
             error:"failed to delete"
+        },{
+            status:500
         })
     }
 }
