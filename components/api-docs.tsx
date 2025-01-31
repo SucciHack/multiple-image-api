@@ -158,12 +158,12 @@ export default function ApiDocumentation() {
   const [activeEndpoint, setActiveEndpoint] = useState<string>(API_ENDPOINTS[0].name)
 
   return (
-    <div className="flex min-h-screen bg-gray-50 text-gray-900">
-      <aside className="w-64 bg-blue-900 text-white p-6">
-        <h1 className="text-2xl font-bold mb-6">Multiple Image Api</h1>
-        <p className="text-sm font-bold mb-6">Designed by <Link href="https://github.com/SucciHack?tab=repositories" className="text-white underline"> Kaweesi Samuel</Link></p>
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <aside className=" bg-blue-900 text-white">
+        <h1 className="text-2xl font-bold mb-6 p-2">Multiple Image Api</h1>
+        <p className="text-sm font-bold mb-6 px-`2">Designed by <Link href="https://github.com/SucciHack?tab=repositories" className="text-white underline"> Kaweesi Samuel</Link></p>
         <nav>
-          <ul>
+          <ul className="md:flex justify-center gap-6">
             {API_ENDPOINTS.map((endpoint) => (
               <li key={endpoint.name} className="mb-2">
                 <button
@@ -177,7 +177,7 @@ export default function ApiDocumentation() {
           </ul>
         </nav>
       </aside>
-      <main className="flex-1 p-8">
+      <main className="flex-1 md:p-4">
         {API_ENDPOINTS.map(
           (endpoint) => activeEndpoint === endpoint.name && <EndpointCard key={endpoint.name} endpoint={endpoint} />,
         )}
