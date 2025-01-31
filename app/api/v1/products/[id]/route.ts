@@ -12,7 +12,7 @@ export async function GET(request:NextRequest, {params}:{params:Promise<{id:stri
         })
         return NextResponse.json({
             data:singleProduct,
-            message:"fetched",
+            message:"fetched successfully",
             error:null
         },{
             status:200
@@ -21,7 +21,7 @@ export async function GET(request:NextRequest, {params}:{params:Promise<{id:stri
         console.log(error)
         return NextResponse.json({
             data:null,
-            error:"something went wrong"
+            error:"failed to fetch"
         })
     }
 }
@@ -39,7 +39,7 @@ export async function PUT(request:NextRequest, {params}:{params:Promise<{id:stri
         })
         return NextResponse.json({
             data:updatedProduct,
-            message:"updated",
+            message:"updated successfully",
             error:null
         },{
             status:201
@@ -48,7 +48,7 @@ export async function PUT(request:NextRequest, {params}:{params:Promise<{id:stri
         console.log(error)
         return NextResponse.json({
             data:null,
-            error:"something went wrong"
+            error:"failed to update"
         },{
             status:500
         })
@@ -76,7 +76,7 @@ export async function DELETE(request:NextRequest, {params}:{params:Promise<{id:s
             }
         }) 
         return NextResponse.json({
-            message:"deleted",
+            message:"Product deleted successfully",
             error:null,
             status:200
         },{
